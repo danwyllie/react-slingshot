@@ -7,8 +7,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "build job"
-          command: "npm run lint"
+          command: npm run lint
           
   test:
     docker:
@@ -16,8 +15,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "test job"
-          command: "npm run test"
+          command: npm run test
 
   analyze:
     docker:
@@ -25,8 +23,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "analyze job"
-          command: "npm audit"
+          command: npm audit
 
 workflows:
   say-hello-workflow:
