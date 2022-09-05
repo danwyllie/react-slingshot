@@ -6,6 +6,7 @@ jobs:
       - image: cimg/base:stable
     steps:
       - checkout
+      - run: npm i
       - run: npm run lint
           
   test:
@@ -13,6 +14,7 @@ jobs:
       - image: cimg/base:stable
     steps:
       - checkout
+      - run: npm i
       - run: npm run test
 
   analyze:
@@ -23,10 +25,12 @@ jobs:
       - run: npm audit
 
 workflows:
-  say-hello-workflow:
+  my-ci-pipeline:
     jobs:
       - build
       - test:
-          requires: build
+          requires:
+            - build
       - analyze:
-          requires: test
+          requires:
+            - test
