@@ -6,24 +6,21 @@ jobs:
       - image: cimg/base:stable
     steps:
       - checkout
-      - run:
-          command: npm run lint
+      - run: npm run lint
           
   test:
     docker:
       - image: cimg/base:stable
     steps:
       - checkout
-      - run:
-          command: npm run test
+      - run: npm run test
 
   analyze:
     docker:
       - image: cimg/base:stable
     steps:
       - checkout
-      - run:
-          command: npm audit
+      - run: npm audit
 
 workflows:
   say-hello-workflow:
